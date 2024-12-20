@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ListarPessoaApp.Models.Pessoa>
+@{
+    Layout = "_Layout";
+}
+
+<h1 class="text-center my-4">Lista de Pessoas</h1>
+<div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th class="text-center">ID</th>
+                <th>Nome Fantasia</th>
+                <th>CNPJ/CPF</th>
+                <th class="text-center">Detalhes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pessoa in Model)
+            {
+                <tr>
+                    <td class="text-center">@pessoa.PESSOA_ID</td>
+                    <td>@pessoa.NOME_FANTASIA</td>
+                    <td>@pessoa.CNPJ_CPF</td>
+                    <td class="text-center">
+                        <a href="@Url.Action("Detalhe", "Pessoa", new { id = pessoa.PESSOA_ID })" class="btn btn-primary btn-sm">Detalhes</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,25 @@
+﻿@model ListarPessoaApp.Models.Pessoa
+@{
+    Layout = "_Layout";
+}
+
+<h1 class="text-center my-4">Detalhes da Pessoa</h1>
+<div class="container">
+    <form action="/Pessoa/Gravar" method="post">
+        <input type="hidden" asp-for="PESSOA_ID" value="@Model.PESSOA_ID" name="PESSOA_ID" />
+        <div class="mb-3">
+            <label class="form-label">Código</label>
+            <input type="text" class="form-control" value="@Model.PESSOA_ID" disabled />
+        </div>        
+        <div class="mb-3">
+            <label class="form-label">Nome Fantasia</label>
+            <input type="text" class="form-control" asp-for="NOME_FANTASIA" value="@Model.NOME_FANTASIA" name="NOME_FANTASIA" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">CNPJ/CPF</label>
+            <input type="text" class="form-control" value="@Model.CNPJ_CPF" readonly disabled/>
+        </div>
+        <button type="submit" class="btn btn-success">Gravar</button>
+        <a href="@Url.Action("Index", "Pessoa")" class="btn btn-secondary">Voltar</a>
+    </form>
+</div>
